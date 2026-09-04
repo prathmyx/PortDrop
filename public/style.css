@@ -48,6 +48,11 @@ form {
     gap: 5px;
 }
 
+textarea {
+    width: 90%;
+    border-radius: 10px;
+}
+
 button {
     font-weight: 600;
     font-size: 1rem;
