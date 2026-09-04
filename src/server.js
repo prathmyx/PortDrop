@@ -1,6 +1,7 @@
 const http = require('http');
 const os = require('os');
 
+const handleStaticRoutes = require('./routes/staticHandler.js');
 const PORT = 5000;
 
 function getLocalIPAddress() {
@@ -18,17 +19,10 @@ function getLocalIPAddress() {
 }
 
 const server = http.createServer((req, res) => {
-    switch (req.url) {
-        case '/':
-            res.end("Welcome To Home Page");
-            break;
-        case '/post-data':
-            res.end("Sending");
-            break;
-        default:
-            res.statusCode = 404;
-            res.end("Error Not Found");
-    }
+    if (handleStaticRoutes(req, res)) return;
+
+    res.writeHead(404, {'Content-Type': 'text/plain'});
+    res.end('404 Page Not Found');
 })
 
 server.listen(

@@ -9,10 +9,12 @@ const fileTypes = {
     '.json': 'application/json',
 }
 
-function handleStaticRoutes(res, req) {
+function handleStaticRoutes(req, res) {
+    // console.log(req, req.url);
     let reqURL = req.url === '/' ? '/index.html' : req.url;
+    // console.log(reqURL, publicDir, req.url);
     let filePath = path.join(publicDir, reqURL);
-    let ext = path.extreme(filePath).toLowerCase();
+    let ext = path.extname(filePath).toLowerCase();
 
     if (!fileTypes[ext]) return false;
 
