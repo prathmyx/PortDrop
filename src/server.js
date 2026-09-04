@@ -1,6 +1,8 @@
 const http = require('http');
 const os = require('os');
 
+const PORT = 5000;
+
 function getLocalIPAddress() {
     let interfaces = os.networkInterfaces();
 
@@ -29,8 +31,6 @@ const server = http.createServer((req, res) => {
             res.end("Error Not Found");
     }
 })
-
-const PORT = 5000;
 
 server.listen(
     {
