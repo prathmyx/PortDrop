@@ -1,0 +1,25 @@
+{
+  "name": "portdrop",
+  "version": "1.0.0",
+  "description": "Cross-Device Media Transfer Tool",
+  "keywords": [
+    "nodejs",
+    "http",
+    "js"
+  ],
+  "homepage": "https://github.com/prathmyx/PortDrop#readme",
+  "bugs": {
+    "url": "https://github.com/prathmyx/PortDrop/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prathmyx/PortDrop.git"
+  },
+  "license": "ISC",
+  "author": "Pratham Yadav",
+  "type": "commonjs",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
