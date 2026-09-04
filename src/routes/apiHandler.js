@@ -5,10 +5,10 @@ function handleAPIRoutes(req, res) {
         req.on('data', (chunk) => {
             body += chunk.toString();
         });
-        req.data('end', () => {
+        req.on('end', () => {
             console.log("Received Text:", body);
             res.writeHead(200, {"Content-Type": 'application/json'});
-            res.json({status: 'success'});
+            res.end(JSON.stringify({status: 'success'}));
         })
 
         return true;
