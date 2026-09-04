@@ -10,9 +10,9 @@ const fileTypes = {
 }
 
 function handleStaticRoutes(req, res) {
-    // console.log(req, req.url);
+  
     let reqURL = req.url === '/' ? '/index.html' : req.url;
-    // console.log(reqURL, publicDir, req.url);
+    
     let filePath = path.join(publicDir, reqURL);
     let ext = path.extname(filePath).toLowerCase();
 
