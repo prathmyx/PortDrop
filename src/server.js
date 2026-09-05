@@ -35,7 +35,8 @@ server.listen(
     host: '0.0.0.0'
     },
     () =>  {
+        console.log('PortDrop Service Started!\n');
         console.log(`Server listening at http://localhost:${PORT}`);
-        console.log(`Network Access: http://${getLocalIPAddress()}:${PORT}`);
+        console.log(`Network Access: http://${getLocalIPAddress()}:${PORT}\n`);
     }
 );

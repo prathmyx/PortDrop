@@ -20,7 +20,7 @@ document.getElementById('sub-btn').addEventListener('click', async (e) => {
 
         if (response.ok) {
             statusEl.textContent = "Text sent Successfully ✅";
-            textInput.nodeValue = '';
+            textInput.value = '';
         } else {
             statusEl.textContent = "Failed to send Text ❌";
         }
