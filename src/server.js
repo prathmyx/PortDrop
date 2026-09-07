@@ -8,13 +8,12 @@ const PORT = 5000;
 
 function getLocalIPAddress() {
     let interfaces = os.networkInterfaces();
+    interfaceName = 'Wi-Fi';
 
-    for (let interfaceName of Object.keys(interfaces)) {
-        for (let net of interfaces[interfaceName]) {
+    for (let net of interfaces[interfaceName]) {
 
-            if (net.family === 'IPv4' && !net.internal) {
-                return net.address;
-            }
+        if (net.family === 'IPv4' && !net.internal) {
+            return net.address;
         }
     }
     return 'localhost';
