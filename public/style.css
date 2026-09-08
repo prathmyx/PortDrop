@@ -32,17 +32,6 @@ body {
     padding: 1.2rem;
 }
 
-#message-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    background-color: var(--container);
-    width: 80vw;
-
-    padding: 1.2rem;
-}
-
 #main-head {
     color: var(--primary);
     text-align: center;
@@ -81,4 +70,116 @@ button {
 
 button:hover {
     background-color: #059669;
+}
+
+#message-container {
+    width: 100%;
+    max-width: 900px;
+    height: 500px;
+
+    margin: 20px auto;
+    padding: 15px;
+
+    background: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 12px;
+
+    box-sizing: border-box;
+
+    overflow-y: auto;
+
+    scrollbar-width: thin;
+    scrollbar-color: #4b5563 #1f2937;
+}
+
+#message-list {
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#message-list li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 12px 15px;
+
+    background: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 8px;
+
+    color: #f9fafb;
+}
+
+
+.message-text {
+    flex: 1;
+    min-width: 0;
+
+    color: #f9fafb;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+
+.message-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    flex-shrink: 0;
+}
+
+.message-actions button {
+    border: none;
+    padding: 7px 12px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+    font-size: 13px;
+
+    transition: 0.2s ease;
+}
+
+
+.copy-btn {
+    background: #374151;
+    color: #f9fafb;
+}
+
+.copy-btn:hover {
+    background: #4b5563;
+}
+
+.delete-btn {
+    background: #7f1d1d;
+    color: #fecaca;
+}
+
+.delete-btn:hover {
+    background: #991b1b;
+}
+
+@media (max-width: 600px) {
+    #message-container {
+        height: 400px;
+        padding: 10px;
+    }
+
+    #message-list li {
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .message-actions button {
+        padding: 6px 9px;
+        font-size: 12px;
+    }
 }

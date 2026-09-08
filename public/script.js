@@ -36,8 +36,36 @@ const eventSource = new EventSource('/events');
 
 eventSource.onmessage = (event) => {
     const data = JSON.parse(event.data);
+
     const li = document.createElement('li');
-    console.log(data);
-    li.innerHTML = `Text: ${data.text} Time: ${data.timestamp}`;
-    messList.append(li);
+
+    li.dataset.timestamp = data.timestamp;
+
+    li.innerHTML = `
+        <span class="message-text">${data.text}</span>
+
+        <div class="message-actions">
+            <button class="copy-btn" type="button">Copy   </button>
+            <button class="delete-btn" type="button">Delete</button>
+        </div>
+    `;
+
+    li.querySelector('.copy-btn').addEventListener('click', async () => {
+        const text = li.querySelector('.message-text').textContent;
+
+        await navigator.clipboard.writeText(text);
+
+        const button = li.querySelector('.copy-btn');
+        button.textContent = 'Copied!';
+
+        setTimeout(() => {
+            button.textContent = 'Copy';
+        }, 1000);
+    });
+
+    li.querySelector('.delete-btn').addEventListener('click', () => {
+        li.remove();
+    });
+
+    messList.prepend(li);
 };
