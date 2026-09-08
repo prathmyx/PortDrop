@@ -1,10 +1,10 @@
 document.getElementById('sub-btn').addEventListener('click', async (e) => {
     e.preventDefault();
     
-    const textInput = document.getElementById('textarea').value;
+    let textInputEl = document.getElementById('textarea');
     const statusEl = document.getElementById('statusEl');
 
-    if (!textInput.trim()) {
+    if (!textInputEl.value.trim()) {
         statusEl.textContent = 'Please Enter Some Text!';
         return;
     }
@@ -15,12 +15,12 @@ document.getElementById('sub-btn').addEventListener('click', async (e) => {
             headers: {
                 'Content-Type': 'text/plain',
             },
-            body: textInput,
+            body: textInputEl.value,
         })
 
         if (response.ok) {
             statusEl.textContent = "Text sent Successfully ✅";
-            textInput.value = '';
+            textInputEl.value = "";
         } else {
             statusEl.textContent = "Failed to send Text ❌";
         }
