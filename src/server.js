@@ -2,7 +2,8 @@ const http = require('http');
 const os = require('os');
 
 const handleStaticRoutes = require('./routes/staticHandler.js');
-const handleAPIRoutes = require('./routes/apiHandler.js');
+const {handleAPIRoutes} = require('./routes/apiHandler.js');
+const eventsRoute = require('./routes/eventHandler.js');
 
 const PORT = 5000;
 
@@ -23,6 +24,8 @@ const server = http.createServer((req, res) => {
     if (handleStaticRoutes(req, res)) return;
 
     if (handleAPIRoutes(req, res)) return;
+
+    if (eventsRoute(req, res)) return;
 
     res.writeHead(404, {'Content-Type': 'text/plain'});
     res.end('404 Page Not Found');

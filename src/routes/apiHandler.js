@@ -1,3 +1,7 @@
+const EventEmitter = require('events');
+
+const messageEmitter = new EventEmitter();
+
 function handleAPIRoutes(req, res) {
     if (req.url == '/api/v1/send-text' && req.method === 'POST') {
         let body = '';
@@ -6,7 +10,11 @@ function handleAPIRoutes(req, res) {
             body += chunk.toString();
         });
         req.on('end', () => {
-            console.log("Received Text:", body);
+            console.log("New Message:", body);
+
+            payload = {text: body, timestamp: Date.now()};
+
+            messageEmitter.emit('newMessage', payload);
             res.writeHead(200, {"Content-Type": 'application/json'});
             res.end(JSON.stringify({status: 'success'}));
         })
@@ -16,4 +24,4 @@ function handleAPIRoutes(req, res) {
     return false;
 }
 
-module.exports = handleAPIRoutes;
+module.exports = {handleAPIRoutes, messageEmitter};
