@@ -1,6 +1,7 @@
 const EventEmitter = require('events');
 
 const messageEmitter = new EventEmitter();
+messageEmitter.setMaxListeners(10);
 
 function handleAPIRoutes(req, res) {
     if (req.url == '/api/v1/send-text' && req.method === 'POST') {
