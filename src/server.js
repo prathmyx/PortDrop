@@ -5,7 +5,7 @@ const handleStaticRoutes = require('./routes/staticHandler.js');
 const {handleAPIRoutes} = require('./routes/apiHandler.js');
 const eventsRoute = require('./routes/eventHandler.js');
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 function getLocalIPAddress() {
     let interfaces = os.networkInterfaces();
