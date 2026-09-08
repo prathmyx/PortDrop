@@ -92,6 +92,11 @@ button:hover {
     scrollbar-color: #4b5563 #1f2937;
 }
 
+#empty-message {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
 #message-list {
     list-style: none;
 
