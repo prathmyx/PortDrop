@@ -29,3 +29,15 @@ document.getElementById('sub-btn').addEventListener('click', async (e) => {
         statusEl.textContent = 'Server network Error!';
     }
 });
+
+const messList = document.getElementById('message-list');
+
+const eventSource = new EventSource('/events');
+
+eventSource.onmessage = (event) => {
+    const data = JSON.parse(event.data);
+    const li = document.createElement('li');
+    console.log(data);
+    li.innerHTML = `Text: ${data.text} Time: ${data.timestamp}`;
+    messList.append(li);
+};
