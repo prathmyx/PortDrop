@@ -1,4 +1,4 @@
-# PortDrop
+# PortDrop 📬📦
 
 **PortDrop** is a lightweight, zero-dependency text transfer tool that lets you instantly send and display messages between devices connected to the same Wi-Fi network.
 
